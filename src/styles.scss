@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:300,300i,400italic,700italic,400,700);
+
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+
+body {
+    color: #454545;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 300;
+    background: #ffffff;
+    letter-spacing: normal;
+    font-style: normal;
+    font-family: 'Roboto Slab'
+}

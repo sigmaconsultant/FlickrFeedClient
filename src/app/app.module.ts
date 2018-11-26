@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FeedComponent } from './feed/feed.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AppRoutes } from './app.routing';
 
 @NgModule({
    declarations: [
       AppComponent,
-      FeedComponent
+      FeedComponent,
+      HeaderComponent,
+      FooterComponent
    ],
    imports: [
-      BrowserModule
+      BrowserModule,
+      AppRoutes
    ],
    providers: [],
    bootstrap: [

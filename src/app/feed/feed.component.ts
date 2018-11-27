@@ -20,12 +20,14 @@ export class FeedComponent implements OnInit, OnDestroy {
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
+    // Get all with row limit defined
     this.feedService.getFeed("", this.feedLimit)
     .pipe(takeUntil(this.destroyed))
     .subscribe(feed => {this.feed = feed}, err => {alert('There was an error while getting feed'); console.log(err)})
   }
 
   doSearch() {
+    // Filter results with row limit defined
     this.feedService.getFeed(this.searchText, this.feedLimit)
     .pipe(takeUntil(this.destroyed))
     .subscribe(feed => {this.feed = feed}, err => {alert('There was an error while getting feed'); console.log(err)})

@@ -9,13 +9,15 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 })
 export class FeedService {
 
+apiUrl: string = "http://localhost:10000";
+
 constructor(private http: HttpClient) { }
 
 getFeed(searchText: string, limit: number): Observable<FeedData[]> {
 
-  return this.http.get('/api/getFeed?q=' + searchText + "&l=" + limit)
-  .pipe(map(result => {
-    return result['data'].map(d => {return new FeedData(d.title, d.subtitle, d.pictureUrl)});
+  return this.http.get(this.apiUrl + '/api/getFeed?q=' + searchText + "&l=" + limit)
+  .pipe(map((result: FeedData[]) => {
+    return result.map(d => {return new FeedData(d.title, d.subtitle, d.pictureUrl)});
   }));
     
 }

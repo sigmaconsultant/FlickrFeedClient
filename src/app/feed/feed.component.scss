@@ -20,14 +20,33 @@
     .pictures {
         .box {
             height: 200px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 15px;
 
             .overlay {
+                top: 200px;
                 position: absolute;
-                top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
                 background-color: #ed1f2b;
+                transition: top 0.5s ease;
+                overflow: hidden;
+
+                .d-flex {
+                    height: 100%;
+                }
+
+                div {
+                    color: white;
+                }
+            }
+
+            &:hover {
+                .overlay {
+                    top: 0;
+                }
             }
         }
     }

@@ -3,15 +3,17 @@
     <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Enter search query here"/>
     <i class="fa fa-search"></i>
   </div>
-  <div class="pictures">
+  <div class="pictures row">
     <div class="box col-12 col-md-6 col-lg-3">
       <h2>Photography</h2>
       <p>Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film.</p>
     </div>
-    <div class="box col-12 col-md-6 col-lg-3" *ngFor="let d of feed">
-      <img height="100%" ngSrc="d.pictureUrl"/>
-      <div class="overlay col-12 justify-content-center">
-        <h3>{{d.title}}</h3>
+    <div class="box col-auto" *ngFor="let d of feed">
+      <img height="100%" src="{{d.pictureUrl}}"/>
+      <div class="overlay">
+        <div class="d-flex align-items-center">
+            <div class="text-center col-12">{{d.title}}</div>
+        </div>        
       </div>
     </div>
   </div>

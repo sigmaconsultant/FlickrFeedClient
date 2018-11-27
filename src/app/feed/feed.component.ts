@@ -15,11 +15,18 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   feed: FeedData[] = [];
   searchText: string = ""; 
+  feedLimit: 10;
 
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    this.feedService.getFeed("", 0)
+    this.feedService.getFeed("", this.feedLimit)
+    .pipe(takeUntil(this.destroyed))
+    .subscribe(feed => {this.feed = feed}, err => {alert('There was an error while getting feed'); console.log(err)})
+  }
+
+  doSearch() {
+    this.feedService.getFeed(this.searchText, this.feedLimit)
     .pipe(takeUntil(this.destroyed))
     .subscribe(feed => {this.feed = feed}, err => {alert('There was an error while getting feed'); console.log(err)})
   }
